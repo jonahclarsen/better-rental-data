@@ -1,0 +1,117 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# TypeScript
+dist/
+*.tsbuildinfo
+.tsc-cache/
+
+# Prisma
+prisma/*.db
+prisma/*.db-journal
+.prisma/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+*.egg-info/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+log/
+*.log.*
+prompt_errors.log
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# Database
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+postgres_data/
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+tmp/
+temp/
+
+# Build files
+build/
+out/
+target/
+
+# Coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# Data files (uncomment if you don't want to track the scraped data)
+# data/
+
+# Generated files
+prompt.txt
+
+# Backup files
+*.bak
+*.backup
+*~
+*.orig
+
+# Lock files (you might want to keep package-lock.json)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml 

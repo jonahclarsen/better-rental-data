@@ -1,0 +1,21 @@
+{
+  "name": "better-rental-data",
+  "version": "1.0.0",
+  "description": "Facebook Marketplace rental data analysis",
+  "main": "dist/import-listings.js",
+  "scripts": {
+    "import": "ts-node src/import-listings.ts",
+    "build": "tsc",
+    "migrate": "prisma migrate dev",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.24",
+    "prisma": "^5.7.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

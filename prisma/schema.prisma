@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Listing {
+  id                String   @id
+  listingTitle      String?
+  price             Decimal  @db.Decimal(10, 2)
+  city              String?
+  state             String?
+  postalCode        String?
+  streetAddress     String?
+  latitude          Decimal? @db.Decimal(10, 8)
+  longitude         Decimal? @db.Decimal(11, 8)
+  squareFeet        Int?
+  bedrooms          Int?
+  bathrooms         Int?
+  description       String?  @db.Text
+  amenities         String[] 
+  petFriendly       Boolean? @default(false)
+  availableDate     DateTime?
+  listedDate        DateTime @default(now())
+  scrapedAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  ai_category_v1    String?
+  
+  // New fields
+  imageUrl          String?  @db.Text
+  listingUrl        String?  @db.Text
+  country           String?
+  
+  // History of price changes for this listing
+  priceHistory      PriceHistory[]
+}
+
+model PriceHistory {
+  id          Int      @id @default(autoincrement())
+  listingId   String
+  price       Decimal  @db.Decimal(10, 2)
+  recordedAt  DateTime @default(now())
+  
+  listing     Listing  @relation(fields: [listingId], references: [id])
+  
+  @@index([listingId])
+} 
