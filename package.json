@@ -8,9 +8,11 @@
     "build": "tsc",
     "migrate": "prisma migrate dev",
     "studio": "prisma studio",
-    "upload-kaggle": "ts-node src/upload-to-kaggle.ts"
+    "upload-kaggle": "ts-node src/upload-to-kaggle.ts",
+    "categorize": "ts-node src/categorize-listings.ts"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@prisma/client": "^5.7.0"
   },
   "devDependencies": {

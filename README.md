@@ -8,6 +8,8 @@ That's why I created this project: to get better data on market-rate rents, and 
 
 At least in Halifax, most apartments are listed on Facebook Marketplace, so what better source of ground truth than that?
 
+The hardest part of the problem is that Facebook Marketplace listings don't have fine grained enough categories. A listing in the "1-bedroom apartment" category might mean a 1-bedroom apartment, one bedroom in an apartment, or one bed in a bedroom in an apartment. Thus, the Gemini API is used to intelligently categorize listings based on their descriptions into the relevant category.
+
 ## Setup
 
 ### 1. Start the PostgreSQL Database
