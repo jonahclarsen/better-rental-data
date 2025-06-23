@@ -265,8 +265,8 @@ async function importListings(filePath: string): Promise<ImportStats> {
         if (imageUrl) dbData.imageUrl = imageUrl;
         if (item.creation_time) dbData.listedDate = new Date(item.creation_time);
         
-        // AI categorization based on description
-        dbData.ai_category_v1 = determineListingCategory(listing.description, bedrooms);
+        // AI categorization - empty by default
+        dbData.ai_category_v1 = '';
         
         // Log price changes for existing listings
         if (existingListing) {
@@ -355,52 +355,7 @@ function extractBathroomCount(item: any): number | undefined {
   }
 }
 
-/**
- * Determine the category of listing based on description and bedroom count
- */
-function determineListingCategory(description: string | undefined, bedrooms?: number): string {
-  if (!description) return 'unknown';
-  
-  const desc = description.toLowerCase();
-  
-  // Check for Airbnb or short-term rental indicators
-  if (desc.includes('airbnb') || 
-      desc.includes('short term') || 
-      desc.includes('short-term') ||
-      desc.includes('nightly') ||
-      desc.includes('per night') ||
-      desc.includes('vacation rental')) {
-    return 'airbnb';
-  }
-  
-  // Determine based on bedroom count and description
-  if (desc.includes('studio')) {
-    return 'studio apartment';
-  } else if (desc.includes('room for rent') || 
-             desc.includes('roommate') || 
-             desc.includes('shared apartment') ||
-             desc.includes('shared kitchen') ||
-             desc.includes('shared bathroom')) {
-    return 'bedroom';
-  } else if (desc.includes('shared room') || desc.includes('shared bedroom')) {
-    return 'bed';
-  } else if (bedrooms) {
-    return `${bedrooms}bdr apartment`;
-  }
-  
-  // Default based on keyword matching
-  if (desc.includes('1 bedroom') || desc.includes('1-bedroom') || desc.includes('one bedroom')) {
-    return '1bdr apartment';
-  } else if (desc.includes('2 bedroom') || desc.includes('2-bedroom') || desc.includes('two bedroom')) {
-    return '2bdr apartment';
-  } else if (desc.includes('3 bedroom') || desc.includes('3-bedroom') || desc.includes('three bedroom')) {
-    return '3bdr apartment';
-  } else if (desc.includes('4 bedroom') || desc.includes('4-bedroom') || desc.includes('four bedroom')) {
-    return '4bdr apartment';
-  }
-  
-  return 'unknown';
-}
+
 
 /**
  * Main function to process all JSON files in the data directory
