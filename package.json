@@ -7,7 +7,8 @@
     "import": "ts-node src/import-listings.ts",
     "build": "tsc",
     "migrate": "prisma migrate dev",
-    "studio": "prisma studio"
+    "studio": "prisma studio",
+    "upload-kaggle": "ts-node src/upload-to-kaggle.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.7.0"

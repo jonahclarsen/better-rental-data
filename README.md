@@ -1,6 +1,6 @@
 # Better Rental Data
 
-Existing sources of market-rate rental data in Canada, such as the (Rentals.ca National Rent Report)[https://rentals.ca/national-rent-report], are not very accurate for some cities, namely those cities with very few (and/or very unrepresentative) listings on Rentals.ca. 
+Existing sources of market-rate rental data in Canada, such as the [Rentals.ca National Rent Report](https://rentals.ca/national-rent-report), are not very accurate for some cities, namely those cities with very few (and/or very unrepresentative) listings on Rentals.ca. 
 
 Without accuate market-rate rental data, it's hard to know how effective policies aimed at making rentals more affordable are.
 
